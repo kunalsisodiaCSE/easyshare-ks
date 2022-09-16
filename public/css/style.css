@@ -65,9 +65,7 @@ section.download {
   :root {
     --container-width: 320px;
   }
-  .logo  {
-    display: none;
-  }
+
   section.download {
     flex-direction: column;
   }
