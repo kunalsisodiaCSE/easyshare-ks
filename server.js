@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require("cors");
 
 //creating port to launch api
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,14 @@ app.use(express.json());
 //cloud based mongo DB
 const connectDatabase = require("./config/database");
 connectDatabase();
+
+//cors setup
+const corsOption={
+    origin: process.env.CLIENT_EMAILS.split(',')
+    //origin: ["http://localhost:3000","http://localhost:5000"]
+
+};
+app.use(cors(corsOption));
 
 //Template engine
 app.set("views", path.join(__dirname, "/views"));
