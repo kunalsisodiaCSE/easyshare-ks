@@ -54,10 +54,24 @@ section.download {
 .send-btn-container a:hover {
   background: var(--dark-blue);
 }
-.footn{
+.footn {
   position: absolute;
   bottom: 10px;
   left: 400px;
   font-size: 12px;
   color: #999;
+}
+@media screen and (max-width: 900px) {
+  :root {
+    --container-width: 320px;
+  }
+  .logo  {
+    display: none;
+  }
+  section.download {
+    flex-direction: column;
+  }
+  section.download {
+    width: 300px;
+  }
 }
