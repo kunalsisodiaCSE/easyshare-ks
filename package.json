@@ -15,7 +15,8 @@
     "mongoose": "^5.13.15",
     "multer": "^1.4.4",
     "nodemailer": "^6.7.8",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "xhr": "^2.6.0"
   },
   "keywords": [],
   "author": "Kunal Sisodia",

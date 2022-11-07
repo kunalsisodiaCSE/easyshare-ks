@@ -2,6 +2,7 @@
 //requirements
 require("dotenv").config();
 const express = require("express");
+const fs = require("fs");
 const app = express();
 const path = require("path");
 const cors = require("cors");
@@ -11,16 +12,19 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-
 //cloud based mongo DB
 const connectDatabase = require("./config/database");
 connectDatabase();
 
-//cors setup
-const corsOption={
-    origin: process.env.CLIENT_EMAILS.split(',')
-    //origin: ["http://localhost:3000","http://localhost:5000"]
+//front page
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
+});
 
+//cors setup
+const corsOption = {
+  origin: process.env.CLIENT_EMAILS.split(","),
+  //origin: ["http://localhost:3000","http://localhost:5000"]
 };
 app.use(cors(corsOption));
 
@@ -31,7 +35,7 @@ app.set("view engine", "ejs");
 //routes
 app.use("/api/files", require("./routes/files"));
 app.use("/files", require("./routes/show"));
-app.use("/files/download",require("./routes/download"));
+app.use("/files/download", require("./routes/download"));
 
 // Serve static files from the React app listen on port
 app.listen(PORT, () => {
