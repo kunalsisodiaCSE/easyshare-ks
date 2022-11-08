@@ -17,7 +17,7 @@ const connectDatabase = require("./config/database");
 connectDatabase();
 
 //front page
-app.get("/"||"https://easyshare-ks.herokuapp.com/", function (req, res) {
+app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
